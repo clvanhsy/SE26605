@@ -14,11 +14,11 @@ echo random_color();
 <?php
 $table = "<table>"; //empty table var
 
-for($rows =0; $rows <= 10; $rows++){
+for($rows =0; $rows <= 9; $rows++){
     $value = random_color();
 $table .= "<tr><td style='background-color:#".$value.";'>$value<br /><span style ='color:#ffffff;'>$value</span></td>";
 
-    for($col = 0; $col <= 9; $col++)
+    for($col = 0; $col <= 8; $col++)
     {
         $value = random_color();
         $table .= "<td style='background-color:".$value.";'>$value<br /><span style ='color:#ffffff;'>$value</span></td>";
