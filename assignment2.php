@@ -25,13 +25,14 @@ try {
         $sql->bindParam('dob', $dob);
         $sql->bindParam('height', $height);
         $sql->execute();
-        echo $sql->rowCount() . " Rows Inserted ";
+        echo $sql->rowCount() . " Row Inserted ";
 
     }
 } catch (PDOException $e){
     die(" There was a problem connecting to the DataBase.");
 }
 ?>
+
 <form methond="get" action="#">
     <h1> Add Actors or Actress! </h1>
    <p> First Name </p> <input type="text" name="firstname" value="" />
