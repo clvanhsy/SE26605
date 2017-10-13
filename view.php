@@ -17,6 +17,7 @@ $username = "actors";
 $password = "se266";
 $dbname = "phpclassfall2017";
 
+// Creates a connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 //Checks Connection
 if (!$conn){
@@ -36,7 +37,7 @@ if(mysqli_num_rows($result) > 0) {
 else {
     echo "0 Results";
 }
-
+$conn->close(); // Closes connection
 ?>
 </body>
 </html>

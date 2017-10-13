@@ -12,8 +12,8 @@ $password = "se266";
 
 try {
     $db = new PDO($dsn, $username, $password);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $submit = $_GET['submit'] ?? ""; // Null Coalesce Operator
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  // If There is an issue throw it down to the catch
+    $submit = $_GET['submit'] ?? ""; // Null Coalesce Operator, Also $_Get is a Global Variable
     if ($submit == " Add "){
         $firstname = $_GET['firstname'] ?? "";
         $lastname = $_GET['lastname'] ?? "";
@@ -25,7 +25,7 @@ try {
         $sql->bindParam('dob', $dob);
         $sql->bindParam('height', $height);
         $sql->execute();
-        echo $sql->rowCount() . " Row Inserted ";
+        echo $sql->rowCount() . " Row Inserted "; // Shows that the data has been entered into the DataBase
 
     }
 } catch (PDOException $e){
@@ -44,4 +44,4 @@ try {
    <p> Height </p> <input type="text" name="height" value="" />
     <br /><br />
     <input type="submit" id="foo" name="submit" value=" Add " />
-</form>
+</form> <!-- Form is created to add data into database -->
