@@ -31,6 +31,19 @@ try {
 } catch (PDOException $e){
     die(" There was a problem connecting to the DataBase.");
 }
+
+
+
+ /*$sql = $db->prepare("SELECT * FROM actors");
+$sql->execute();
+$results = $sql->fetchAll();
+if (count($results)) {
+    foreach ($results as $actor){
+        print_r($actor);
+    }
+}
+
+ */
 ?>
 <header style="font-size:30px; color:black"><i>Form To Add Actors/Actress</i></header>
 <br />
