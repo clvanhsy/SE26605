@@ -45,7 +45,7 @@ if (count($results)) {
 
  */
 ?>
-<header style="font-size:30px; color:black"><i>Form To Add Actors/Actress</i></header>
+<header style="font-size:30px; color:black;"><i>Form To Add Actors/Actress</i></header>
 <br />
 <a href="assignment2.php"><strong>Add Form</strong></a>
 <br /><br />

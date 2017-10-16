@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-<header style="font-size:30px; color:black"> <i>Viewing Page</i> </header>
+<header style="font-size:30px; color:black;"> <i>Viewing Page</i> </header>
 <br />
 <!-- Navigation links -->
 <a href="assignment2.php"><strong>Add Form </strong></a>
@@ -111,7 +111,7 @@ if (count($results)) {
         print_r($actor);
     }
 }
-*/ // Prints data 
+*/ // Prints data
 ?>
 
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
