@@ -11,7 +11,7 @@
         if($submit == "Do it") {
             $name = $_GET['name'] ?? ""; //_GET  is Global Var
             $gender = $_GET['gender'] ?? "";
-            $fixed = $_GET['fixed'] ?? "N";
+            $fixed = $_GET['fixed'] ?? false;
             $sql = $db->prepare("INSERT INTO dogs VALUES (null, :name, :gender, :fixed )");
             $sql->bindParam(':name', $name);
             $sql->bindParam(':gender', $gender);
@@ -29,18 +29,16 @@
     <input type="text" name="name" value=" " /><br /> <!-- Text Box -->
     <input type="radio" name="gender" value="M" /> Male <br /> <!-- Radio buttons -->
     <input type="radio" name="gender" value="F" /> Female <br />
-    <input type="checkbox" name="fixed" value="Y" />  <br /> <!-- Check Box -->
+    <input type="checkbox" name="fixed" value=true />  <br /> <!-- Check Box -->
     <input type="submit" id="foo" name="submit" value="Do It"/> <!-- Creates a button with a text in it -->
 </form>
 
 <?php
-$sql = $db->prepare("SELECT + FROM dogs");
+$sql = $db->prepare("SELECT * FROM dogs");
 $sql->execute();
 $results = $sql->fetchAll();
 if(count($results)){
-    if (count($results)){
-        foreach ($results as $dogs){
+        foreach ($results as $dogs) {
             print_r($dogs);
         }
-    }
 }
