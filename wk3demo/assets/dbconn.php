@@ -1,5 +1,10 @@
 <?php
-/** Created by PhpStorm **/
+/**
+ * Created by PhpStorm.
+ * User: calexande
+ * Date: 10/16/2017
+ * Time: 8:44 AM
+ */
 function dbConn()
 {
     $dsn = "mysql:host=localhost;dbname=dogs";
@@ -7,11 +12,9 @@ function dbConn()
     $password = "se266";
     try {
         $db = new PDO($dsn, $username, $password);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // If There is an issue throw it down to the catch
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $db;
-    } catch (PDOException $e){
-        die("There was a problem connecting to the DataBase.");
+    } catch (PDOException $e) {
+        die("The was problem connecting to the db.");
     }
 }
-
-?>
