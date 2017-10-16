@@ -36,9 +36,9 @@ try {
 <?php
 $sql = $db->prepare("SELECT * FROM dogs");
 $sql->execute();
-$results = $sql->fetchAll();
+$results = $sql->fetchAll(PDO::FETCH_ASSOC);
 if(count($results)){
-    foreach ($results as $dogs) {
-        print_r($dogs);
+    foreach ($results as $dog) {
+        print_r($dog);
     }
 }
