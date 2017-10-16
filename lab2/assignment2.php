@@ -49,7 +49,7 @@ if (count($results)) {
 <br />
 <a href="assignment2.php"><strong>Add Form</strong></a>
 <br /><br />
-<a href="view.php"><strong>View Actors/Actress</strong></a>
+<a href="assets/view.php"><strong>View Actors/Actress</strong></a>
 
 <form methond="get" action="#">
     <h2> Add Actors or Actress! </h2>

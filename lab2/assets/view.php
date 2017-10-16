@@ -13,7 +13,7 @@
 <header style="font-size:30px; color:black;"> <i>Viewing Page</i> </header>
 <br />
 <!-- Navigation links -->
-<a href="assignment2.php"><strong>Add Form </strong></a>
+<a href="../assignment2.php"><strong>Add Form </strong></a>
 <br /><br />
 <a href="view.php"><strong>View Actors/Actress</strong></a>
 <br /><br />
