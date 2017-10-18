@@ -18,6 +18,6 @@ $lastname = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING) ?? "";
 $dob = filter_input(INPUT_POST, 'dob', FILTER_SANITIZE_STRING) ?? "";
 $height = filter_input(INPUT_POST,'height', FILTER_SANITIZE_STRING) ?? "";
 
-echo actorsTable();
+echo actorsTable($db);
 include_once("assets/actorsform.php");
 include_once ("assets/footer.php");
