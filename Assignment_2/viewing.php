@@ -3,10 +3,10 @@
  * Created by PhpStorm.
  * User: Cynthia
  * Date: 10/18/2017
- * Time: 9:27 AM
+ * Time: 10:42 AM
  */
 require_once("assets/dbconn.php");
-require_once("assets/actors.php");
+require_once ("assets/view.php");
 include_once("assets/header.php");
 
 $db = dbConn();
@@ -17,13 +17,6 @@ $dob = filter_input(INPUT_POST, 'dob', FILTER_SANITIZE_STRING) ?? "";
 $height = filter_input(INPUT_POST, 'height', FILTER_SANITIZE_STRING) ?? "";
 $submit = filter_input(INPUT_POST,'submit', FILTER_SANITIZE_STRING) ?? "";
 
-switch($submit){
-    case "Add":
-        echo $firstname, $lastname, $dob, $height;
-        addActors($db, $firstname, $lastname, $dob, $height);
-}
 
-include_once("assets/actorsform.php");
+echo actorsTable($db);
 include_once("assets/footer.php");
-
-
