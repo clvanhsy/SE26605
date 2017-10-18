@@ -7,7 +7,7 @@
  */
 ?>
 
-<form methond="post" action="#">
+<form method="post" action="#">
 
     <h2> Add Actors or Actress! </h2>
     <p> First Name: </p> <input type="text" name="firstname" value="" />
