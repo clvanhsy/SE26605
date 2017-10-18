@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title> Lab 2 </title>
 </head>
 <body>
 <header>
-    <nav>
+<nav>
 
-    </nav>
+</nav>
 </header>
 <section>
-
