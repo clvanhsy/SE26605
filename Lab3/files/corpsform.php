@@ -7,11 +7,11 @@
  */
 ?>
 <form method="post" action="#">
-    Corporation: <input type="text" name="corp" value="<?php echo $corpo['corp']; ?> "/> <br />
-    Corporation Created: <input type="text" name="incorp_dt" value="<?php echo $corpo['incorp_dt']; ?>" /> <br />
-    Email: <input type="text" name="email" value="<?php echo $corpo['email']; ?>" /> <br />
-    Zipcode: <input type="text" name="zipcode" value="<?php echo $corpo['zipcode']; ?>" /> <br />
-    Owner: <input type="text" name="owner" value="<?php echo $corpo['owner']; ?>" /> <br />
-    Phone Number: <input type="text" name="phone" value="<?php echo $corpo['phone']; ?>" /> <br />
+    Corporation: <input type="text" name="corp" value=" "/> <br />
+    Corporation Created: <input type="text" name="incorp_dt" value="" /> <br />
+    Email: <input type="text" name="email" value="" /> <br />
+    Zipcode: <input type="text" name="zipcode" value="" /> <br />
+    Owner: <input type="text" name="owner" value="" /> <br />
+    Phone Number: <input type="text" name="phone" value="" /> <br />
     <input type="submit" id="corporation" name="submit" value="<?php echo $Btn; ?>" />
 </form>

@@ -20,10 +20,10 @@ $owner = filter_input(INPUT_POST, 'owner', FILTER_SANITIZE_STRING) ?? "";
 $phone = filter_input(INPUT_POST,'phone', FILTER_SANITIZE_STRING) ?? "";
 $id = filter_input(INPUT_POST,'id', FILTER_VALIDATE_INT) ?? null;
 
+$Btn = "Add";
 switch ($submit){
     case "Add":
         addCorps($db, $corp, $incorp_dt, $email, $zipcode, $owner, $phone);
-        $Btn = "Add";
         break;
     case "Edit":
         $corpo = getCorps($db, $id);
@@ -34,6 +34,7 @@ switch ($submit){
         break;
     case "Delete":
         break;
+
 }// End of Switch Statement
 
 echo corpsTable($db);
