@@ -6,6 +6,9 @@
  * Time: 8:15 AM
  */
 ?>
+</section>
 <footer>
 Copyrights &copy; <?php echo Date('Y'); ?> Cynthia Vanhsy. All rights reserved
 </footer>
+</body>
+</html>

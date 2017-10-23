@@ -11,9 +11,22 @@ $gender = filter_input(INPUT_POST, 'gender', FILTER_VALIDATE_REGEXP,
         )
     )??"";
 $fixed = filter_input(INPUT_POST, 'fixed', FILTER_VALIDATE_BOOLEAN) ?? false;
+$id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT) ?? null;
+$button ="Add";
 switch ($action){
     case "Add":
         addDog($db, $name, $gender, $fixed);
+
+        break;
+    case "Edit":
+        $dog = getDog($db, $id);
+        $button = "Update";
+        echo $button;
+        break;
+    case "Update":
+        break;
+    case "Delete":
+        break;
 }
 echo getDogsAsTable($db);
 include_once ("assets/dogform.php");
