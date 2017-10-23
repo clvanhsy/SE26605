@@ -15,6 +15,7 @@ function corpsTable($db){
             $table = "<table>" . PHP_EOL;
             foreach ($corps as $corpo){
                 $table .= "<tr><td>" . $corpo['corp'] . "</td><td>" . $corpo['incorp_dt'] . "</td><td>" . $corpo['email'] . "</td><td>" . $corpo['zipcode'] . "</td><td>" . $corpo['owner'] . "</td><td>" . $corpo['phone'] . "</td>";
+                $table .= "<td><form method='post' action='#'><input type='hidden' name='id' value='". $corpo['id']." '/><input type='submit' name='submit' value='Read' /></form></td>";
                 $table .= "<td><form method='post' action='#'><input type='hidden' name='id' value='". $corpo['id']." '/><input type='submit' name='submit' value='Edit' /></form></td>";
                 $table .= "<td><form method='post' action='#'><input type='hidden' name='id' value='". $corpo['id']." '/><input type='submit' name='submit' value='Delete' /></form></td>";
                 $table .= "</tr>";
@@ -31,11 +32,10 @@ function corpsTable($db){
     }// End of Catch Statement
 }// End of the corpsTable Function
 
-function addCorps($db, $corp, $incorp_dt, $email, $zipcode, $owner, $phone){
+function addCorps($db, $corp, $email, $zipcode, $owner, $phone){
     try {
         $sql = $db->prepare("INSERT INTO corps VALUES (null, :corp, :email, :zipcode, :owner, :phone)");
         $sql->bindParam(':corp', $corp);
-        $sql->bindParam(':incorp_dt', $incorp_dt);
         $sql->bindParam(':email', $email);
         $sql->bindParam(':zipcode', $zipcode);
         $sql->bindParam(':owner', $owner);
