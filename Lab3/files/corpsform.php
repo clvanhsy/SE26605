@@ -18,5 +18,5 @@
     <br />
     <p> Phone Number: </p> <input type="text" name="phone" value="" />
     <br /><br />
-    <input type="submit" id="corporation" name="submit" value="<?php echo $Btn; ?>" />
+    <input type="submit" id="corporation" name="submit" value="Add" />
 </form>
