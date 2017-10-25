@@ -17,7 +17,7 @@ function corpsTable($db){
             foreach ($corps as $corpo){
                 $table .= "<tr><td>" . " Companies: " . " " . $corpo['corp'] . "</td><td>";
                 $table .= "<td><form method='post' action='#'><input type='hidden' name='id' value='". $corpo['id']." '/><a href='read.php'> Read </a></form></td>";
-                $table .= "<td><form method='post' action='#'><input type='hidden' name='id' value='". $corpo['id']." '/><a href='files/corps.php'> Update </a> </form></td>";
+                $table .= "<td><form method='post' action='#'><input type='hidden' name='id' value='". $corpo['id']." '/><a href='update.php'> Update </a> </form></td>";
                 $table .= "<td><form method='post' action='#'><input type='hidden' name='id' value='". $corpo['id']." '/><a href='=files/corps.php'> Delete </a></form></td>";
                 $table .= "</tr>";
 

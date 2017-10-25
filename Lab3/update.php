@@ -2,9 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: Cynthia
- * Date: 10/24/2017
- * Time: 7:13 PM
+ * Date: 10/25/2017
+ * Time: 9:39 AM
  */
+
 require_once ("files/dbconn.php");
 require_once ("files/corps.php");
 include_once("files/header.php");
@@ -26,10 +27,16 @@ switch ($submit){
         echo $corp, $incorp_dt, $email, $zipcode, $owner, $phone;
         addCorps($db, $corp, $incorp_dt, $email, $zipcode, $owner, $phone);
         break;
-   case "Update":
-        $corpo = getCorps($db, $id);
-        $Btn = "Update";
-        echo $Btn;
+    case "Update":
+        $corpo = getCorps($db, $corp, $email, $zipcode, $owner, $phone);
+        $corp=[
+            'corp' => '',
+            'email' => '',
+            'zipcode' => '',
+            'owner' => '',
+            'phone' => ''
+        ];
+        $Btn = "Add";
         break;
     case "Read":
 
@@ -39,7 +46,7 @@ switch ($submit){
 
 }
 
-include_once ("files/corpsform.php");
+include_once ("files/updated.php");
 include_once ("files/footer.php");
 ?>
 <a href="index.php" > go back </a>

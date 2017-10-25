@@ -1,4 +1,4 @@
-<?php
+<?php1
 /**
  * Created by PhpStorm.
  * User: Cynthia
@@ -18,5 +18,5 @@
     <br />
     <p> Phone Number: </p> <input type="text" name="phone" value="" />
     <br /><br />
-    <input type="submit" id="corporation" name="submit" value="Add" />
+    <input type="submit" id="corporation" name="submit" value="<?php echo $Btn ?>" />
 </form>
