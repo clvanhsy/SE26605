@@ -21,7 +21,7 @@ function getCorps ($db, $id){
             $table = "<table>" . PHP_EOL;
             foreach ($corps as $corpo){ // Loops through corps table to display table
                 $table .= "<tr><td>" . " Companies: " . " " . $corpo['corp'] . "</td>";
-                $table .= "<td>" .  " Date: " . $corpo['incorp_dt'] = date("m/d/Y", strtotime($corpo['incorp_dt'])). "</td>";
+                $table .= "<td>" .  " Date: " . date("m/d/Y", strtotime($corpo['incorp_dt'])). "</td>";
                 $table .= "<td>" .  " Email: " . $corpo['email'] . "</td>";
                 $table .= "<td>" . " Zip Code: " . $corpo['zipcode'] . "</td>";
                 $table .= "<td>" . " Owner: " . $corpo['owner'] . "</td>";
