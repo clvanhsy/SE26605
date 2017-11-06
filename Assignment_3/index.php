@@ -13,4 +13,3 @@ $db = dbConn();
 
 echo corpsTable($db);
 include_once ("files/footer.php");
-

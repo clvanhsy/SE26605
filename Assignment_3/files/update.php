@@ -24,7 +24,7 @@ $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_STRING) ?? "";
 $Btn = "Add";
 switch ($submit){
     case "Add":
-        addCorps($db, $corp, $email, $zipcode, $owner, $phone);
+        $corpo = addCorps($db, $corp, $email, $zipcode, $owner, $phone);
         break;
     case "Update":
         updateCorps($db, $corp, $email, $zipcode, $owner, $phone, $id);
