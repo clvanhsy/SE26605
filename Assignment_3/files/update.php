@@ -18,17 +18,12 @@ $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_STRING) ?? "";
 $zipcode = filter_input(INPUT_POST, 'zipcode', FILTER_SANITIZE_STRING) ?? "";
 $owner = filter_input(INPUT_POST, 'owner', FILTER_SANITIZE_STRING) ?? "";
 $phone = filter_input(INPUT_POST,'phone', FILTER_SANITIZE_STRING) ?? "";
-$id = filter_input(INPUT_GET,'id', FILTER_VALIDATE_INT) ?? null;
 $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_STRING) ?? "";
 
-$Btn = "Add";
+
 switch ($submit){
-    case "Add":
-        $corpo = addCorps($db, $corp, $email, $zipcode, $owner, $phone);
-        break;
     case "Update":
-        updateCorps($db, $corp, $email, $zipcode, $owner, $phone, $id);
-        $Btn = "Add";
+        $corpo = updateCorps($db, $corp, $email, $zipcode, $owner, $phone, $id);
         break;
 
 }
@@ -37,7 +32,7 @@ switch ($submit){
 function updateCorps($db, $corp, $email, $zipcode, $owner, $phone, $id)
 {
     try {
-        $sql = $db->prepare("UPDATE corps SET corp= :corp, email= :email, zipcode= :zipcode, owner= :owner, phone= :phone WHERE id= :id");
+        $sql = $db->prepare("UPDATE corps SET corp=:corp, email=:email, zipcode=:zipcode, owner=:owner, phone=:phone WHERE id=:id");
         $sql->bindParam(':corp', $corp, PDO::PARAM_STR);
         $sql->bindParam(':email', $email, PDO::PARAM_STR);
         $sql->bindParam(':zipcode', $zipcode, PDO::PARAM_STR);
@@ -51,22 +46,30 @@ function updateCorps($db, $corp, $email, $zipcode, $owner, $phone, $id)
     }
 }
 
+$sql = $db->prepare("SELECT * FROM corps WHERE id=:id");
+$sql->bindParam(':id', $id);
+$sql->execute();
+$corps = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+try {
+    foreach ($corps as $corpo) {
+        $form = "<form method='post' action=''>";
+        $form .= "<label for='corp'>Corporation: </label><input type='text' name='corp' value='" . $corpo['corp'] . "' /><br />";
+        $form .= "<label for='email'>Email: </label><input type='text' name='email' value='" . $corpo['email'] . "' /><br />";
+        $form .= "<label for='zipcode'>Zipcode: </label><input type='text' name='zipcode' value='" . $corpo['zipcode'] . "' /><br />";
+        $form .= "<label for='owner'>Owner: </label><input type='text' name='owner' value='" . $corpo['owner'] . "' /><br />";
+        $form .= "<label for='phone'>Phone: </label><input type='text' name='phone' value='" . $corpo['phone'] . "'/> ><br />";
+        $form .= "<input type='submit' name='submit' value='Update'/> <br />";
+    }
+        $form .= "</form>";
+        echo ($form);
+}catch(PDOException $e)
+{
+    die("There was a problem in the update");
+}
 ?>
 
-<form method="post" action="#">
-    <h2> Create A Corporation </h2>
-    <p> Corporation: </p> <input type="text" name="corp" value="<?php echo $corpo['corp']; ?> "/>
-    <br />
-    <p> Email: </p> <input type="text" name="email" value="<?php echo $corpo['email']; ?>" />
-    <br />
-    <p> Zipcode: </p> <input type="text" name="zipcode" value="<?php echo $corpo['zipcode']; ?>" />
-    <br />
-    <p> Owner: </p> <input type="text" name="owner" value="<?php echo $corpo['owner']; ?>" />
-    <br />
-    <p> Phone Number: </p> <input type="text" name="phone" value="<?php echo $corpo['phone']; ?>" />
-    <br /><br />
-    <input type="submit" id="corporation" name="submit" value="<?php echo $Btn ?>" />
-</form>
+
 
 <br/><br/>
 <a href="../index.php"> Return </a>
