@@ -33,18 +33,21 @@ function updateCorps($db, $corp, $email, $zipcode, $owner, $phone, $id)
 {
     try {
         $sql = $db->prepare("UPDATE corps SET corp=:corp, email=:email, zipcode=:zipcode, owner=:owner, phone=:phone WHERE id=:id");
+        $sql->bindParam(':id', $id);
         $sql->bindParam(':corp', $corp, PDO::PARAM_STR);
         $sql->bindParam(':email', $email, PDO::PARAM_STR);
         $sql->bindParam(':zipcode', $zipcode, PDO::PARAM_STR);
         $sql->bindParam(':owner', $owner, PDO::PARAM_STR);
         $sql->bindParam(':phone', $phone, PDO::PARAM_STR);
-        $sql->bindParam(':id', $id);
+
         $sql->execute();
         echo $sql->rowCount() . " row was updated. ";
-    }catch (PDOException $e){
+    }// End of Try Satat
+    catch (PDOException $e)
+    {
         die("There was a problem in Updating the data. ");
-    }
-}
+    }// End of Catch Statement
+}// End of Update Function
 
 $sql = $db->prepare("SELECT * FROM corps WHERE id=:id");
 $sql->bindParam(':id', $id);
@@ -58,7 +61,7 @@ try {
         $form .= "<label for='email'>Email: </label><input type='text' name='email' value='" . $corpo['email'] . "' /><br />";
         $form .= "<label for='zipcode'>Zipcode: </label><input type='text' name='zipcode' value='" . $corpo['zipcode'] . "' /><br />";
         $form .= "<label for='owner'>Owner: </label><input type='text' name='owner' value='" . $corpo['owner'] . "' /><br />";
-        $form .= "<label for='phone'>Phone: </label><input type='text' name='phone' value='" . $corpo['phone'] . "'/> ><br />";
+        $form .= "<label for='phone'>Phone: </label><input type='text' name='phone' value='" . $corpo['phone'] . "'/> <br />";
         $form .= "<input type='submit' name='submit' value='Update'/> <br />";
     }
         $form .= "</form>";
