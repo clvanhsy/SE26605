@@ -23,7 +23,7 @@ function deleteCorps($db, $id){
     {
         die(" There was a problem in deleting the Data. ");
     }// End of Catch Statement
-}
+} // End of deleteCrops Function
 
 echo(deleteCorps($db,$id));
 ?>
