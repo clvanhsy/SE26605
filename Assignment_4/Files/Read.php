@@ -16,7 +16,5 @@ echo getCorps($db, $id);
 ?>
 
 <a href="../index.php"> Return </a>
-<a href='Update.php?id=<?php echo $id ?>'>Update</a>
-<a href='Delete.php?id=<?php echo $id ?>'>Delete</a>
 
 <?php include_once ("Footer.php"); ?>

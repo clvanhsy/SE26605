@@ -17,14 +17,13 @@ function corpsTable($db){
             $table = "<table>" . PHP_EOL;
             foreach ($corps as $corp){
                 $table .= "<tr><td>" . " Companies: " . " " . $corp['corp'] . "</td><td>";
-                $table .= "<td><form method='get' action='#'><a href='files/read.php?id=" . $corp['id']." '> Read </a></form></td>";
-                $table .= "<td><form method='get' action='#'><a href='files/delete.php?id=" . $corp['id']." '> Delete </a></form></td>";
-                $table .= "<td><form method='get' action='#'><a href='files/update.php?id=" . $corp['id']." '> Update </a></form></td>";
+                $table .= "<td><form method='get' action='#'><a href='Files/Read.php?id=" . $corp['id']." '> Read </a></form></td>";
+                $table .= "<td><form method='get' action='#'><a href='Files/Delete.php?id=" . $corp['id']." '> Delete </a></form></td>";
+                $table .= "<td><form method='get' action='#'><a href='Files/Update.php?id=" . $corp['id']." '> Update </a></form></td>";
                 $table .= "</tr>";
 
             }// End of Foreach Loop
             $table .= "</table>" . PHP_EOL;
-            $table .= "<td><form method='post' action='#'><input type='hidden' name='id' value='". $corp['id']." '/><a href='files/corpsform.php'> Create </a></form></td>";
 
         }// End of If Statement
         else {
@@ -98,25 +97,6 @@ function addCorps($db, $corp, $email, $zipcode, $owner, $phone){
     }// End of Catch Statement
 }// End of addCorps Function
 
-function updateCorps($db, $corp, $email, $zipcode, $owner, $phone, $id)
-{
-    try {
-        $sql = $db->prepare("UPDATE corps SET corp=:corp, email=:email, zipcode=:zipcode, owner=:owner, phone=:phone WHERE id=:id");
-        $sql->blindParam(':id', $id, PDO::PARAM_INT);
-        $sql->bindParam(':corp', $corp, PDO::PARAM_STR);
-        $sql->bindParam(':email', $email, PDO::PARAM_STR);
-        $sql->bindParam(':zipcode', $zipcode, PDO::PARAM_STR);
-        $sql->bindParam(':owner', $owner, PDO::PARAM_STR);
-        $sql->bindParam(':phone', $phone, PDO::PARAM_STR);
-        $sql->execute();
-        echo $sql->rowCount() . " row was updated. ";
-    }// End of Try Statement
-    catch (PDOException $e)
-    {
-        die("There was a problem in Updating the data. ");
-    }// End of Catch Statement
-}// End of Update Function
-
 
 function getCorps ($db, $id){
     try{
@@ -133,13 +113,12 @@ function getCorps ($db, $id){
                 $table .= "<td>" . " Zip Code: " . $corp['zipcode'] . "</td>";
                 $table .= "<td>" . " Owner: " . $corp['owner'] . "</td>";
                 $table .= "<td>" . " Phone Number: " . $corp['phone'] . "</td>";
-                $table .= "<td><form method='get' action='#'><a href='delete.php?id=" . $corp['id']." '> Delete </a></form></td>";
-                $table .= "<td><form method='get' action='#'><a href='update.php?id=" . $corp['id']." '> Update </a></form></td>";
+                $table .= "<td><form method='get' action='#'><a href='Delete.php?id=" . $corp['id']." '> Delete </a></form></td>";
+                $table .= "<td><form method='get' action='#'><a href='Update.php?id=" . $corp['id']." '> Update </a></form></td>";
                 $table .= "</tr>";
 
             }// End of Foreach Loop
             $table .= "</table>" . PHP_EOL;
-            $table .= "<td><form method='post' action='#'><input type='hidden' name='id' value='". $corp['id']." '/><a href='corpsform.php'> Create </a></form></td>";
 
         }// End of If Statement
         else {
@@ -158,7 +137,7 @@ function deleteCorps($db, $id){
         $sql = $db->prepare("DELETE FROM corps WHERE id= :id");
         $sql->bindParam(':id', $id, PDO::PARAM_INT);
         $sql->execute();
-        return $sql->rowCount() . " row deleted";
+        echo $sql->rowCount() . " row deleted";
     } // End of Try statement
     catch(PDOException $e)
     {
@@ -230,9 +209,9 @@ function searchCorp($db, $colSearch, $search){
         foreach($corps as $corp)
         {
             $table .= "<tr><td>" . " Companies: " . " " . $corp['corp'] . "</td><td>";
-            $table .= "<td><form method='get' action='#'><a href='files/read.php?id=" . $corp['id']." '> Read </a></form></td>";
-            $table .= "<td><form method='get' action='#'><a href='files/delete.php?id=" . $corp['id']." '> Delete </a></form></td>";
-            $table .= "<td><form method='get' action='#'><a href='files/update.php?id=" . $corp['id']." '> Update </a></form></td>";
+            $table .= "<td><form method='get' action='#'><a href='Files/Read.php?id=" . $corp['id']." '> Read </a></form></td>";
+            $table .= "<td><form method='get' action='#'><a href='Files/Delete.php?id=" . $corp['id']." '> Delete </a></form></td>";
+            $table .= "<td><form method='get' action='#'><a href='Files/Update.php?id=" . $corp['id']." '> Update </a></form></td>";
             $table .= "</tr>";
         }// End of Foreach Loop
         $table .= "</table>" . PHP_EOL;

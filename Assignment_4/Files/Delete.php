@@ -13,5 +13,7 @@ $db = dbConn();
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT) ?? null;
 deleteCorps($db, $id);
 
+
 include_once ("Footer.php");
 ?>
+<a href="../index.php"> Return </a>

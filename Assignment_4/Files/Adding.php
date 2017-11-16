@@ -11,7 +11,7 @@ require_once ("corps.php");
 include_once ("Header.php");
 require_once ("corpsForm.php");
 
-$btn = "Add";
+$button = "Add";
 
 $db = dbConn();
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT) ?? null;
@@ -22,12 +22,11 @@ $zipcode = filter_input(INPUT_POST, 'zipcode', FILTER_SANITIZE_STRING) ?? "";
 $owner = filter_input(INPUT_POST, 'owner', FILTER_SANITIZE_STRING) ?? "";
 $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING) ?? "";
 
-if($submit == "Add")
-{
-    addCorps($db,$corp, $email, $zipcode, $owner, $phone);
-    $btn = "Add";
+switch ($submit){
+    case "Add":
+        addCorps($db, $corp, $email, $zipcode, $owner, $phone);
+        break;
 }
-
 ?>
 
 <a href="../index.php"> Return </a>

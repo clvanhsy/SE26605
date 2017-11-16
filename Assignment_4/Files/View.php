@@ -3,12 +3,12 @@
  * Created by PhpStorm.
  * User: Cynthia
  * Date: 11/15/2017
- * Time: 1:11 AM
+ * Time: 9:36 PM
  */
-require_once ("Files/dbconn.php");
-require_once ("Files/corps.php");
-include_once ("Files/Search.php");
-include_once ("Files/Sort.php");
+require_once ("dbconn.php");
+require_once ("corps.php");
+include_once ("Search.php");
+include_once ("Sort.php");
 
 $db = dbConn();
 
@@ -19,37 +19,37 @@ $colSearch = filter_input(INPUT_GET, 'colSearch', FILTER_SANITIZE_STRING) ?? NUL
 $search = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING) ?? NULL;
 ?>
 
-<a href="Files/Adding.php"> Add </a>
+<a href="Adding.php"> Add </a>
 <br/>
-<a href="Files/View.php" > View </a>
+<a href="../index.php" > Return </a>
 
 <?php
 
 switch ($submit)
 {
     case 'reset':
-        include_once ("Files/Header.php");
+        include_once ("Header.php");
         $corps = retrieveCorps($db);
-        echo corpsTable($db);
+        echo viewAllTable($db, $cols);
         break;
     case 'sort':
-        include_once ("Files/Header.php");
+        include_once ("Header.php");
         $corps = getCorpsAsSortedTable($db, $col, $dir);
         $cols = getColumnNames($db, 'corps');
-        echo corpsTable($db);
+        echo viewAllTable($db, $cols);
         break;
     case 'search':
-        include_once ("Files/Header.php");
+        include_once ("Header.php");
         $cols = getColumnNames($db, 'corps');
         echo viewAllSearchCorp($db, $cols, $colSearch, $search);
         break;
     default:
-        include_once ("Files/Header.php");
-        $corps =retrieveCorps($db);
+        include_once ("Header.php");
+        $corps = retrieveCorps($db);
         $cols = getColumnNames($db, 'corps');
-        echo corpsTable($db);
+        echo viewAllTable($db, $cols = null);
         break;
 }
 
-include_once ("Files/Footer.php");
+include_once ("Footer.php");
 ?>
