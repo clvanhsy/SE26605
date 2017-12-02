@@ -39,9 +39,9 @@ Function addSites($db, $url)
 {
     try
     {
-        $sql = $db->prepare("INSERT INTO sites VALUES (null, :sites, NOW())");
+        $sql = $db->prepare("INSERT INTO sites VALUES (null, :site, NOW())");
         $sql->bindParam(':site', $url);
-        $sql->excute();
+        $sql->execute();
         $Key = $db->lastInsertId();
 
         return $Key;
