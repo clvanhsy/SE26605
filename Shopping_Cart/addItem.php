@@ -128,7 +128,7 @@ Function fileExists($name)
 <h1>Add new Items!</h1>
 <?php
 
-    $categories = GetCategories($db);
+    $categories = GetCat($db);
     $form = "<form action='' method='POST' enctype='multipart/form-data'>";
     $form .= "Category:";
     $form .= "<select name='category_id' id='category_id'>";
@@ -138,7 +138,7 @@ Function fileExists($name)
     $form .= "</select><br><br>
          <p>Product name:</p>  <input type='text' name='product'><br>
         <p> Price: $ </p><input type='text' name='price' size='8'><br><br>
-        <input type='file' name='file'/> file must be jpg
+        <input type='file' name='file'/> <p>file must be jpg </p><br/><br/>
         <input type='submit' name='submit' value='Submit' />";
     echo $form;
 ?>

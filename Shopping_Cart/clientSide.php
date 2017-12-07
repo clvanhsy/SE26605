@@ -7,6 +7,8 @@
  */
 include_once ("files/dbconn.php");
 include_once ("MGRControls.php");
+include_once ("files/header.php");
+include_once ("files/clientControls.php");
 
 $db = dbConn();
 $email = $_SESSION['username'];
@@ -24,11 +26,18 @@ switch ($submit)
 {
     default:
         $show = getCat($db);
+        echo filter($show);
+        echo itemTable($db);
         break;
     case "Search":
         $show = getCat($db);
+        echo filter($show);
+        echo itemTable($db, $category);
         break;
     case "Reset":
         $show = getCat($db);
+        echo filter($show);
+        echo itemTable($db);
         break;
 }
+?>
