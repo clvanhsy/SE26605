@@ -176,7 +176,7 @@ $categories = GetCategories($db);
 </p>
 
 $form = "<h1>Update: " . $result['product'] . "</h1>
-<form method='post' action='#' enctype='multipart/form-data'>
+<form method='POST' action='#' enctype='multipart/form-data'>
     Category:";
     $form .= "<select name='category_id' id='category_id'>";
         $form .= "<option value =" . $Res['category_id'] . ">" . $Res['category_id'] . ".  " . $Res['category'] . "</option >";

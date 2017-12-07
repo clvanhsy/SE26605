@@ -7,10 +7,10 @@
  */
 Function isPostRequest()
 {
-    return(filter_input(INPUT_SERVER,'REQUEST_METHOD') === 'post');
+    return(filter_input(INPUT_SERVER,'REQUEST_METHOD') === 'POST');
 }
 
 Function isGetRequest()
 {
-    return(filter_input(INPUT_SERVER,'REQIEST_METHOD') === 'get');
+    return(filter_input(INPUT_SERVER,'REQIEST_METHOD') === 'GET');
 }

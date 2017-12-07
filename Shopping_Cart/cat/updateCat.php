@@ -59,7 +59,7 @@ else
     <?php  if ( isset($message) ) { echo $message; }?>
 </p>
 
-<form method="post" action="#">
+<form method="POST" action="#">
     Category: <input type="text" name="category" value="<?php echo $category ?>" />
     <br /><br />
     <input type="hidden" name="category_id" value="<?php echo $category_id ?>" />

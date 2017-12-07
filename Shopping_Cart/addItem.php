@@ -129,7 +129,7 @@ Function fileExists($name)
 <?php
 
     $categories = GetCategories($db);
-    $form = "<form action='' method='post' enctype='multipart/form-data'>";
+    $form = "<form action='' method='POST' enctype='multipart/form-data'>";
     $form .= "Category:";
     $form .= "<select name='category_id' id='category_id'>";
     foreach ($categories as $category) {
