@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Cynthia
- * Date: 11/27/2017
- * Time: 8:34 AM
+ * Date: 12/6/2017
+ * Time: 9:30 PM
  */
 Function dbConn()
 {
@@ -18,5 +18,4 @@ Function dbConn()
     catch (PDOException $e){
         die("There was a problem connecting to the DataBase. ");
     }// End of Catch Statement
-}//
-
+}// End of dbConn Function
