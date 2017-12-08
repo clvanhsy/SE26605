@@ -53,7 +53,7 @@ if($submit != "in")
 switch ($submit)
 {
     default:
-        $_SESSION['totalNow'] = getTotal($db, $id, $_SESSION['totalNow']);
+        $_SESSION['totalNow'] = Total($db, $id, $_SESSION['totalNow']);
         $_SESSION['totalBefore'] = $_SESSION['totalNow'];
         break;
     case "erase":

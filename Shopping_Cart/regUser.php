@@ -26,9 +26,10 @@ switch ($submit)
         break;
     case "submit":
         if($password == $confirm) {
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { // checks for valid email
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+            {
                 $emailErr = "<h2>Invalid email format</h2>";
-                echo AddUser2($email, $password, $confirm); // shows form again with origionally entered info so user doesn't have to start all over again
+                echo AddUser2($email, $password, $confirm);
                 echo $emailErr;
                 $new = regUser("Login");
                 echo $new;

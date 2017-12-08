@@ -113,6 +113,7 @@ Function AddItem($db, $category_id, $product, $price, $image)
     $sql->bindParam(':image', $image);
     $sql->execute();
     $error = " 1 Product was inserted";
+    return $error;
 }
 
 Function viewItems($db)

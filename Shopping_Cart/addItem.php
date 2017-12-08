@@ -16,8 +16,8 @@ if(isset($_POST['submit']))
 {
     $name = $_FILES['file']['name'];
     $type = $_FILES['file']['type'];
-    $tempName = $_FILES['file']['tempName'];
     $size = $_FILES['file']['size'];
+    $tempName = $_FILES['file']['tempName'];
     if(ckType($name, $type) && ckSize($size, $max))
     {
         if(isset($name))
@@ -57,7 +57,7 @@ Function fileSaved($tempName, $name, $location)
             else
             {
                 echo "Success" . $realName . "was added";
-                echo addItem($db, $category_id, $product, $price, $realName);
+                echo AddItem($db, $category_id, $product, $price, $realName);
             }// End of Else Statement
         }// End of If Statement
         else

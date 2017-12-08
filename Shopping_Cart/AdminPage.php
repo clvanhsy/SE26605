@@ -45,7 +45,7 @@ switch ($submit)
     case "Add Category":
         echo $tool;
         echo AddCatFrom();
-        echo AddCatagory($db);
+        echo AddCategory($db);
         break;
 }
 ?>
