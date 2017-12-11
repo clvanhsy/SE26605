@@ -1,4 +1,5 @@
 <?php
+
 /** Created by PhpStorm **/
 //$submit = isset($_GET['submit']) ? $_GET['submit'] : " ";
     $dsn = "mysql:host=localhost;dbname=dogs";
@@ -21,37 +22,4 @@
         }
     } catch (PDOException $e){
         die("There was a problem connecting to the DataBase.");
-    }
-
-?>
-<!--HTML Document -->
-<form method="get" action="#">
-    <input type="text" name="name" value=" " /><br /> <!-- Text Box -->
-    <input type="radio" name="gender" value="M" /> Male <br /> <!-- Radio buttons -->
-    <input type="radio" name="gender" value="F" /> Female <br />
-<<<<<<< HEAD
-    <input type="checkbox" name="fixed" value=true />  <br /> <!-- Check Box -->
-=======
-    <input type="checkbox" name="fixed" value="true" />  <br /> <!-- Check Box -->
->>>>>>> assignment2
-    <input type="submit" id="foo" name="submit" value="Do It"/> <!-- Creates a button with a text in it -->
-</form>
-
-<?php
-$sql = $db->prepare("SELECT * FROM dogs");
-$sql->execute();
-$results = $sql->fetchAll(FETCH_ASSOC);
-if(count($results)){
-<<<<<<< HEAD
-        foreach ($results as $dogs) {
-            print_r($dogs);
-        }
 }
-=======
-        foreach ($results as $dogs){
-            print_r($dogs);
-        }
-
-}
-?>
->>>>>>> assignment2
